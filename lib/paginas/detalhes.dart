@@ -9,6 +9,12 @@ class Detalhes extends StatelessWidget {
       appBar: AppBar(
         title: Text("Detalhes"),
       ),
+      body: ElevatedButton(
+        onPressed: () {
+          Navigator.pushNamed(context, "/carrinho");
+        },
+        child: Text("Agora para o carrinho"),
+      ),
     );
   }
 }

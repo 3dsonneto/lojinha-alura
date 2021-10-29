@@ -1,3 +1,4 @@
+import 'package:alura_layout/paginas/carrinho.dart';
 import 'package:alura_layout/paginas/detalhes.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      routes: {
+        "/carrinho": (context) => Carrinho(),
+      },
       debugShowCheckedModeBanner: false,
       home: Inicio(),
     );
