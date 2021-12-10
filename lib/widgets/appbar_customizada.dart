@@ -1,3 +1,4 @@
+import 'package:alura_layout/widgets/botao_carrinho.dart';
 import 'package:flutter/material.dart';
 
 class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
@@ -12,9 +13,13 @@ class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
         titulo,
         style: TextStyle(color: Colors.black),
       ),
-      centerTitle: true,
       backgroundColor: Colors.transparent,
       elevation: 0.0,
+      centerTitle: true,
+      actions: [
+        //colocar botões dentro do app bar
+        BotaoCarrinho(),
+      ],
     );
   }
 
