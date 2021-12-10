@@ -3,12 +3,14 @@ import 'package:flutter/material.dart';
 
 class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
   final String titulo;
+  final bool isPaginaCarrinho;
 
-  AppBarCustomizada({required this.titulo});
+  AppBarCustomizada({required this.titulo, required this.isPaginaCarrinho});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.black),
       title: Text(
         titulo,
         style: TextStyle(color: Colors.black),
@@ -18,9 +20,14 @@ class AppBarCustomizada extends StatelessWidget with PreferredSizeWidget {
       centerTitle: true,
       actions: [
         //colocar botões dentro do app bar
-        BotaoCarrinho(),
+        _mudarPaginaCarrinho(isPaginaCarrinho),
       ],
     );
+  }
+
+  _mudarPaginaCarrinho(bool isPaginaCarrinho) {
+    if (isPaginaCarrinho) return Container();
+    return BotaoCarrinho();
   }
 
   @override

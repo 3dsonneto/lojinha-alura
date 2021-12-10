@@ -80,7 +80,10 @@ class Inicio extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.grey[200],
-      appBar: AppBarCustomizada(titulo: "Lojinha Alura"),
+      appBar: AppBarCustomizada(
+        titulo: "Lojinha Alura",
+        isPaginaCarrinho: false,
+      ),
       body: ElevatedButton(
         onPressed: () {
           Navigator.push(
