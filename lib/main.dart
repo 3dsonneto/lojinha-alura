@@ -1,7 +1,7 @@
 import 'package:alura_layout/paginas/carrinho.dart';
 import 'package:alura_layout/paginas/detalhes.dart';
 import 'package:alura_layout/widgets/appbar_customizada.dart';
-import 'package:alura_layout/widgets/grid_produtos.dart';
+import 'package:alura_layout/widgets/grid_produtos/grid_produtos.dart';
 import 'package:flutter/material.dart';
 
 void main() {
