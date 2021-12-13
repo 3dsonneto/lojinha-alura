@@ -11,7 +11,7 @@ class GridProdutos extends StatelessWidget {
   Widget build(BuildContext context) {
     return GridView.builder(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
       ),
       itemCount: moveis.length,
       itemBuilder: (context, index) {
