@@ -11,15 +11,30 @@ class ElementoGridProdutos extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      alignment: Alignment.center,
-      children: [
-        ImagemElementoGridProdutos(
-          imagem: movel.foto,
+    return Container(
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            spreadRadius: 2,
+            blurRadius: 8,
+            color: Colors.black12,
+          ),
+        ],
+      ),
+      margin: EdgeInsets.all(10),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(8),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            ImagemElementoGridProdutos(
+              imagem: movel.foto,
+            ),
+            DegradeElementoGridProdutos(),
+            TituloElementoGridProdutos(titulo: movel.titulo),
+          ],
         ),
-        DegradeElementoGridProdutos(),
-        TituloElementoGridProdutos(titulo: movel.titulo),
-      ],
+      ),
     );
   }
 }
