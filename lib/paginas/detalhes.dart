@@ -1,19 +1,38 @@
+import 'package:alura_layout/models/movel.dart';
+import 'package:alura_layout/widgets/appbar_customizada.dart';
+import 'package:alura_layout/widgets/card_detalhes.dart';
 import 'package:flutter/material.dart';
 
 class Detalhes extends StatelessWidget {
-  const Detalhes({Key? key}) : super(key: key);
+  final Movel movel;
+
+  Detalhes({required this.movel});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("Detalhes"),
+    return Container(
+      decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage("utilidades/assets/imagens/${movel.foto}"),
+          fit: BoxFit.cover,
+        ),
       ),
-      body: ElevatedButton(
-        onPressed: () {
-          Navigator.pushNamed(context, "/carrinho");
-        },
-        child: Text("Agora para o carrinho"),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        appBar: AppBarCustomizada(
+          titulo: "",
+          isPaginaCarrinho: false,
+        ),
+        body: Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: EdgeInsets.all(16),
+            height: 200,
+            child: CardDetalhes(
+              movel: movel,
+            ),
+          ),
+        ),
       ),
     );
   }
