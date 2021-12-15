@@ -1,4 +1,5 @@
 import 'package:alura_layout/paginas/carrinho.dart';
+import 'package:alura_layout/paleta_cores.dart';
 import 'package:alura_layout/widgets/appbar_customizada.dart';
 import 'package:alura_layout/widgets/grid_produtos/grid_produtos.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,9 @@ class MyApp extends StatelessWidget {
         "/carrinho": (context) => Carrinho(),
       },
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: PaletaCores().lilas,
+      ),
       home: Inicio(),
     );
   }
