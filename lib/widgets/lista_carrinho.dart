@@ -3,7 +3,16 @@ import 'package:alura_layout/models/item_carrinho.dart';
 import 'package:alura_layout/models/movel.dart';
 import 'package:flutter/material.dart';
 
-class ListaCarrinho extends StatelessWidget {
+class ListaCarrinho extends StatefulWidget {
+  final Function atualiza;
+
+  ListaCarrinho({required this.atualiza});
+
+  @override
+  State<ListaCarrinho> createState() => _ListaCarrinhoState();
+}
+
+class _ListaCarrinhoState extends State<ListaCarrinho> {
   final List<ItemCarrinho> carrinho = Inicio.itensCarrinho;
 
   @override
@@ -81,10 +90,27 @@ class ListaCarrinho extends StatelessWidget {
   }
 
   _aumentarQuantidade(ItemCarrinho item) {
-    item.quantidade++;
+    setState(() {
+      item.quantidade++;
+      widget.atualiza;
+    });
   }
 
   _diminuirQuantidade(ItemCarrinho item) {
-    item.quantidade--;
+    if (item.quantidade > 1) {
+      setState(() {
+        item.quantidade--;
+        widget.atualiza;
+      });
+    }
+
+    _removerMovel(item);
+  }
+
+  _removerMovel(ItemCarrinho item) {
+    setState(() {
+      Inicio.itensCarrinho.remove(item);
+      widget.atualiza;
+    });
   }
 }
