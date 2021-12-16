@@ -1,4 +1,5 @@
 import 'package:alura_layout/widgets/appbar_customizada.dart';
+import 'package:alura_layout/widgets/lista_carrinho.dart';
 import 'package:flutter/material.dart';
 
 class Carrinho extends StatelessWidget {
@@ -12,7 +13,7 @@ class Carrinho extends StatelessWidget {
         titulo: "Carrinho",
         isPaginaCarrinho: true,
       ),
-      body: Text("Estamos no carrinho"),
+      body: ListaCarrinho(),
     );
   }
 }
