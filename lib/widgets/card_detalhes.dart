@@ -35,7 +35,8 @@ class CardDetalhes extends StatelessWidget {
                 style: ElevatedButton.styleFrom(
                     primary: Theme.of(context).primaryColor),
                 onPressed: () {
-                  _adicionarItemCarrinho(
+                  _verificarListaCarrinho(
+                    Inicio.itensCarrinho,
                     ItemCarrinho(movel: movel, quantidade: 1),
                   );
                 },
@@ -53,8 +54,17 @@ class CardDetalhes extends StatelessWidget {
     ));
   }
 
-  _adicionarItemCarrinho(ItemCarrinho item) {
+  void _adicionarItemCarrinho(item) {
     Inicio.itensCarrinho.add(item);
     atualizaPagina();
+  }
+
+  void _verificarListaCarrinho(List<ItemCarrinho> lista, ItemCarrinho item) {
+    int indiceMovel = lista.indexWhere((item) => item.movel == movel);
+    if (indiceMovel >= 0) {
+      lista[indiceMovel].quantidade = lista[indiceMovel].quantidade + 1;
+    } else {
+      _adicionarItemCarrinho(item);
+    }
   }
 }
