@@ -1,3 +1,5 @@
+import 'package:alura_layout/main.dart';
+import 'package:alura_layout/widgets/indicador_botao_carrinho.dart';
 import 'package:flutter/material.dart';
 
 class BotaoCarrinho extends StatelessWidget {
@@ -19,11 +21,27 @@ class BotaoCarrinho extends StatelessWidget {
         alignment: Alignment.centerRight,
         height: 40,
         padding: EdgeInsets.only(right: 20, left: 20),
-        child: Image(
-          height: 30,
-          image: AssetImage("utilidades/assets/icones/carrinho.png"),
-        ),
+        child: _visibilidadeIndicadorCarrinho(),
       ),
+    );
+  }
+
+  _visibilidadeIndicadorCarrinho() {
+    if (Inicio.itensCarrinho.length > 0) {
+      return Stack(
+        children: [
+          Image(
+            height: 30,
+            image: AssetImage("utilidades/assets/icones/carrinho.png"),
+          ),
+          IndicadorBotaoCarrinho(),
+        ],
+      );
+    }
+
+    return Image(
+      height: 30,
+      image: AssetImage("utilidades/assets/icones/carrinho.png"),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:alura_layout/models/item_carrinho.dart';
 import 'package:alura_layout/paginas/carrinho.dart';
 import 'package:alura_layout/paleta_cores.dart';
 import 'package:alura_layout/widgets/appbar_customizada.dart';
@@ -42,6 +43,8 @@ class MyApp extends StatelessWidget {
 }
 
 class Inicio extends StatelessWidget {
+  static List<ItemCarrinho> itensCarrinho = [];
+
   final List moveis = [
     {
       "titulo": "Mesa",
