@@ -29,10 +29,13 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
               clipBehavior: Clip.hardEdge,
               child: Row(
                 children: [
-                  Image(
-                    image:
-                        AssetImage("utilidades/assets/imagens/${movel.foto}"),
-                    height: 92,
+                  Expanded(
+                    child: Image(
+                      image:
+                          AssetImage("utilidades/assets/imagens/${movel.foto}"),
+                      height: 92,
+                      fit: BoxFit.cover,
+                    ),
                   ),
                   Expanded(
                     child: Container(
