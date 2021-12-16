@@ -15,14 +15,18 @@ class CardDetalhes extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        TextDetalhes(texto: movel.titulo),
-        TextDetalhes(texto: movel.descricao),
+        TextDetalhes(
+            texto: movel.titulo, estilo: Theme.of(context).textTheme.headline1),
+        TextDetalhes(texto: movel.descricao, estilo: null),
         Container(
           margin: EdgeInsets.only(left: 16, right: 16, top: 16, bottom: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(formatacaoReais.format(movel.preco)),
+              Text(
+                formatacaoReais.format(movel.preco),
+                style: Theme.of(context).textTheme.headline1,
+              ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                     primary: Theme.of(context).primaryColor),
