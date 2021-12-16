@@ -2,6 +2,7 @@ import 'package:alura_layout/main.dart';
 import 'package:alura_layout/models/item_carrinho.dart';
 import 'package:alura_layout/models/movel.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class ListaCarrinho extends StatefulWidget {
   final Function atualiza;
@@ -14,6 +15,7 @@ class ListaCarrinho extends StatefulWidget {
 
 class _ListaCarrinhoState extends State<ListaCarrinho> {
   final List<ItemCarrinho> carrinho = Inicio.itensCarrinho;
+  final formatacaoReais = NumberFormat.currency(locale: "pt_BR", symbol: "R\$");
 
   @override
   Widget build(BuildContext context) {
@@ -45,11 +47,14 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text(movel.titulo),
+                          Text(
+                            movel.titulo,
+                            style: Theme.of(context).textTheme.headline3,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(movel.preco.toString()),
+                              Text(formatacaoReais.format(movel.preco)),
                               Row(
                                 children: [
                                   GestureDetector(
