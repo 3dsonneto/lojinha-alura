@@ -3,17 +3,26 @@ import 'package:alura_layout/widgets/appbar_customizada.dart';
 import 'package:alura_layout/widgets/card_detalhes.dart';
 import 'package:flutter/material.dart';
 
-class Detalhes extends StatelessWidget {
+class Detalhes extends StatefulWidget {
   final Movel movel;
 
   Detalhes({required this.movel});
+
+  @override
+  State<Detalhes> createState() => _DetalhesState();
+}
+
+class _DetalhesState extends State<Detalhes> {
+  void initstate() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage("utilidades/assets/imagens/${movel.foto}"),
+          image: AssetImage("utilidades/assets/imagens/${widget.movel.foto}"),
           fit: BoxFit.cover,
         ),
       ),
@@ -29,11 +38,16 @@ class Detalhes extends StatelessWidget {
             margin: EdgeInsets.all(16),
             height: 220,
             child: CardDetalhes(
-              movel: movel,
+              movel: widget.movel,
+              atualizaPagina: atualiza,
             ),
           ),
         ),
       ),
     );
+  }
+
+  atualiza() {
+    setState(() {});
   }
 }
