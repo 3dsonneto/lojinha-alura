@@ -5,11 +5,17 @@ import 'package:alura_layout/widgets/grid_produtos/imagem_elemento_grid_produtos
 import 'package:alura_layout/widgets/grid_produtos/titulo_elemento_grid_produtos.dart';
 import 'package:flutter/material.dart';
 
-class ElementoGridProdutos extends StatelessWidget {
+class ElementoGridProdutos extends StatefulWidget {
   final Movel movel;
+  final Function atualiza;
 
-  ElementoGridProdutos({required this.movel});
+  ElementoGridProdutos({required this.atualiza, required this.movel});
 
+  @override
+  State<ElementoGridProdutos> createState() => _ElementoGridProdutosState();
+}
+
+class _ElementoGridProdutosState extends State<ElementoGridProdutos> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -18,10 +24,10 @@ class ElementoGridProdutos extends StatelessWidget {
           context,
           MaterialPageRoute(
             builder: (context) => Detalhes(
-              movel: movel,
+              movel: widget.movel,
             ),
           ),
-        );
+        ).then((value) => widget.atualiza());
       },
       child: Container(
         decoration: BoxDecoration(
@@ -40,10 +46,10 @@ class ElementoGridProdutos extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               ImagemElementoGridProdutos(
-                imagem: movel.foto,
+                imagem: widget.movel.foto,
               ),
               DegradeElementoGridProdutos(),
-              TituloElementoGridProdutos(titulo: movel.titulo),
+              TituloElementoGridProdutos(titulo: widget.movel.titulo),
             ],
           ),
         ),

@@ -3,9 +3,10 @@ import 'package:alura_layout/widgets/grid_produtos/elemento_grid_produtos.dart';
 import 'package:flutter/material.dart';
 
 class GridProdutos extends StatelessWidget {
+  final Function atualiza;
   final moveis;
 
-  GridProdutos({this.moveis});
+  GridProdutos({required this.atualiza, this.moveis});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class GridProdutos extends StatelessWidget {
       itemBuilder: (context, index) {
         final movel = Movel.fromJson(moveis[index]);
 
-        return ElementoGridProdutos(movel: movel);
+        return ElementoGridProdutos(atualiza: atualiza, movel: movel);
       },
     );
   }

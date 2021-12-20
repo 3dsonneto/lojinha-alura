@@ -15,7 +15,7 @@ class _CarrinhoState extends State<Carrinho> {
   final formatacaoReais = NumberFormat.currency(locale: "pt_BR", symbol: "R\$");
   @override
   Widget build(BuildContext context) {
-    int valorTotal = _calcularTotal();
+    int _valorTotal = _calcularTotal();
     return Scaffold(
       bottomNavigationBar: Container(
         color: Colors.white,
@@ -29,7 +29,7 @@ class _CarrinhoState extends State<Carrinho> {
               style: Theme.of(context).textTheme.headline4,
             ),
             Text(
-              formatacaoReais.format(valorTotal),
+              formatacaoReais.format(_valorTotal),
               style: Theme.of(context).textTheme.headline5,
             ),
           ],
@@ -40,7 +40,7 @@ class _CarrinhoState extends State<Carrinho> {
         titulo: "Carrinho",
         isPaginaCarrinho: true,
       ),
-      body: ListaCarrinho(atualiza: atualiza),
+      body: _construirTela(),
     );
   }
 
@@ -55,5 +55,17 @@ class _CarrinhoState extends State<Carrinho> {
           .reduce((precoAtual, precoNovo) => precoAtual + precoNovo);
     }
     return 0;
+  }
+
+  Widget _construirTela() {
+    if (Inicio.itensCarrinho.isNotEmpty) {
+      return ListaCarrinho(atualiza: atualiza);
+    } else {
+      return Container(
+        height: double.infinity,
+        alignment: Alignment.center,
+        child: Text("Nenhum item no carrinho"),
+      );
+    }
   }
 }
