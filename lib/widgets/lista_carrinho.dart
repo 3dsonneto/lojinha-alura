@@ -110,9 +110,9 @@ class _ListaCarrinhoState extends State<ListaCarrinho> {
         item.quantidade--;
         widget.atualiza;
       });
+    } else {
+      _removerMovel(item);
     }
-
-    _removerMovel(item);
   }
 
   void _removerMovel(ItemCarrinho item) {
